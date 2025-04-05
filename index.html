@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>AI宝宝起名助手</title>
+    <style>
+        /* 极简风格设计 */
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .input-group {
+            margin: 15px 0;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            align-items: center;
+        }
+        .name-card {
+            border: 1px solid #eee;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .name-card:hover {
+            background-color: #f8f9fa;
+        }
+        #result-container {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>🧒 AI宝宝起名助手</h2>
+    
+    <!-- 输入区域 -->
+    <div class="input-group">
+        <label>宝宝性别：</label>
+        <select id="gender">
+            <option value="boy">男孩</option>
+            <option value="girl">女孩</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>宝宝姓氏：</label>
+        <input type="text" id="lastname" placeholder="请输入姓氏" value="王">
+    </div>
+
+    <div class="input-group">
+        <label>偏好风格：</label>
+        <select id="style">
+            <option value="classic">古风</option>
+            <option value="modern">现代</option>
+            <option value="poetic">诗意</option>
+        </select>
+    </div>
+
+    <button onclick="generateNames()">立即生成名字</button>
+
+    <!-- 结果展示 -->
+    <div id="result-container">
+        <h3>推荐名字列表（点击收藏⭐️）</h3>
+        <div id="name-list"></div>
+    </div>
+
+    <script>
+        // 模拟数据 - 实际开发需接入数据库或AI接口
+        const nameDatabase = {
+            boy: {
+                classic: ["子墨", "逸辰", "明轩", "瑾瑜", "云舟"],
+                modern: ["宇航", "昊然", "梓豪", "俊熙", "一诺"],
+                poetic: ["清和", "望舒", "景行", "其琛", "维桢"]
+            },
+            girl: {
+                classic: ["婉清", "若曦", "语嫣", "诗涵", "静姝"],
+                modern: ["欣怡", "雨桐", "思颖", "梓萱", "可馨"],
+                poetic: ["采薇", "令仪", "徽音", "蓁蓁", "琼华"]
+            }
+        };
+
+        // 生成名字逻辑
+        function generateNames() {
+            const gender = document.getElementById('gender').value;
+            const lastName = document.getElementById('lastname').value.trim();
+            const style = document.getElementById('style').value;
+            
+            if (!lastName) {
+                alert("请输入姓氏");
+                return;
+            }
+
+            const names = nameDatabase[gender][style].map(name => lastName + name);
+            renderNames(names);
+        }
+
+        // 渲染结果
+        function renderNames(names) {
+            const container = document.getElementById('name-list');
+            container.innerHTML = names.map(name => `
+                <div class="name-card" onclick="this.classList.toggle('starred')">
+                    <span>${name}</span>
+                    <small>五行：${getRandomAttribute()}</small>
+                </div>
+            `).join('');
+        }
+
+        // 模拟五行属性
+        function getRandomAttribute() {
+            const attributes = ["金", "木", "水", "火", "土"];
+            return attributes[Math.floor(Math.random() * attributes.length)];
+        }
+
+        // 初始化展示
+        generateNames();
+    </script>
+</body>
+</html>
