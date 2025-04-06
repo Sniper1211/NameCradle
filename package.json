@@ -1,0 +1,27 @@
+{
+  "name": "namecradle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sniper1211/NameCradle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sniper1211/NameCradle/issues"
+  },
+  "homepage": "https://github.com/Sniper1211/NameCradle#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^6.2.5",
+    "vite-plugin-html": "^3.2.2"
+  }
+}
