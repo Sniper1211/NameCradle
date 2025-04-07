@@ -34,16 +34,16 @@
         
         <!-- 输入区域 -->
         <div class="input-group">
+            <label>宝宝姓氏：</label>
+            <input type="text" id="lastname" placeholder="请输入姓氏" value="王" class="short-input">
+        </div>
+
+        <div class="input-group">
             <label>宝宝性别：</label>
             <select id="gender">
                 <option value="boy">男孩</option>
                 <option value="girl">女孩</option>
             </select>
-        </div>
-
-        <div class="input-group">
-            <label>宝宝姓氏：</label>
-            <input type="text" id="lastname" placeholder="请输入姓氏" value="王">
         </div>
 
         <div class="input-group">
@@ -106,7 +106,7 @@
             "伯言": "伯为长，言为言语，寓意言行得体、德高望重",
             "泽宇": "泽被万物，宇指宇宙，寓意恩泽广布、胸怀宽广",
             "晋鹤": "晋为进步，鹤为仙鹤，寓意步步高升、志向高远",
-            "文昊": "文采斐然，昊如天空，寓意才华横溢、胸怀宽广",
+            "文昊": "文采斐然，昊如天空，寓意才华横逸、胸怀宽广",
             "子骞": "子表示智慧，骞表示高飞，寓意聪明睿智、志向高远",
             "雨泽": "雨露恩泽，寓意恩泽万物、心怀感恩",
             "楚辰": "楚为楚国，辰为时辰，寓意前程似锦、光明磊落",
@@ -115,11 +115,11 @@
             "嘉懿": "嘉美懿德，寓意品德高尚、才华出众",
             "鹏涛": "鹏指大鹏，涛指波涛，寓意志向高远、气势磅礴",
             "致远": "志存高远，寓意志向远大、前途无量",
-            "俊哲": "俊秀聪哲，寓意英俊睿智、才华横溢",
+            "俊哲": "俊秀聪哲，寓意英俊睿智、才华横逸",
             "雨轩": "雨露滋润，轩高大，寓意恩泽万物、志向高远",
             "烨霖": "烨为光明，霖为甘霖，寓意光明磊落、恩泽万物",
             "晟睿": "晟为兴盛，睿为睿智，寓意兴旺发达、聪明睿智",
-            "文博": "文采斐然，博学多闻，寓意才华横溢、学识渊博",
+            "文博": "文采斐然，博学多闻，寓意才华横逸、学识渊博",
             "天翊": "天高云淡，翊为辅佐，寓意志向高远、乐于助人",
             
             "宇航": "探索宇宙，寓意胸怀广阔、勇于探索",
@@ -161,8 +161,8 @@
             "书白": "如白纸上的书法，寓意文采斐然、清白高洁",
             "云天": "如云如天，寓意志向高远、胸怀宽广",
             "星辰": "如星如辰，寓意光芒四射、前程似锦",
-            "翰墨": "翰为毛笔，墨为墨汁，寓意文采斐然、才华横溢",
-            "风华": "风度翩翩，华彩照人，寓意风度翩翩、才华横溢",
+            "翰墨": "翰为毛笔，墨为墨汁，寓意文采斐然、才华横逸",
+            "风华": "风度翩翩，华彩照人，寓意风度翩翩、才华横逸",
             "清漪": "清水微波，寓意心如止水、温文尔雅",
             "明志": "明确志向，寓意志向远大、目标明确",
             "澄邈": "澄澈深远，寓意心灵澄澈、思想深邃",
@@ -188,7 +188,7 @@
             "婉清": "婉约清丽，寓意温婉贤淑",
             "若曦": "如初升的太阳，寓意朝气蓬勃",
             "语嫣": "言语婉转动听，寓意温柔善良",
-            "诗涵": "如诗般内涵丰富，寓意才华横溢",
+            "诗涵": "如诗般内涵丰富，寓意才华横逸",
             "静姝": "安静美丽，寓意温婉贤淑",
             "梦洁": "梦想纯洁，寓意纯洁美好、心灵澄澈",
             "雅静": "优雅文静，寓意优雅大方、温文尔雅",
@@ -203,7 +203,7 @@
             "紫瑶": "如紫色美玉，寓意珍贵如玉、高贵典雅",
             "雅芙": "优雅如花朵，寓意优雅大方、美丽如花",
             "雨萌": "雨露滋润，萌芽生长，寓意恩泽万物、茁壮成长",
-            "诗琪": "如诗如玉，寓意才华横溢、珍贵如玉",
+            "诗琪": "如诗如玉，寓意才华横逸、珍贵如玉",
             "梦瑶": "如梦如瑶，寓意美好梦想、珍贵如玉",
             "嘉琪": "嘉美如玉，寓意美好可人、珍贵如玉",
             "雅媛": "优雅娴淑，寓意优雅大方、温婉可人",
@@ -212,8 +212,8 @@
             "雅玲": "优雅如玲珑，寓意优雅大方、玲珑剔透",
             "雨欣": "雨露滋润，欣欣向荣，寓意恩泽万物、欣欣向荣",
             "雅馨": "优雅馨香，寓意优雅大方、温馨美好",
-            "雨晴": "雨过天晴，寓意阳光明媚、心情愉悦",
-            "雅琴": "优雅如琴声，寓意优雅大方、才华横溢",
+            "雨晴": "雨过天晴，寓意阳光明亮、心情愉悦",
+            "雅琴": "优雅如琴声，寓意优雅大方、才华横逸",
             "雨菲": "雨露滋润，菲为香草，寓意恩泽万物、芬芳馥郁",
             
             "欣怡": "欣欣喜悦，寓意快乐开朗",
@@ -234,10 +234,10 @@
             "思怡": "思维敏捷，怡然自得，寓意聪明智慧、怡然自得",
             "雅怡": "优雅怡人，寓意优雅大方、温婉可人",
             "雨怡": "雨露滋润，怡然自得，寓意恩泽万物、怡然自得",
-            "佳宁": "美好安宁，寓意美好可人、安宁平和",
-            "思宁": "思维敏捷，安宁平和，寓意聪明智慧、安宁平和",
-            "雅宁": "优雅安宁，寓意优雅大方、安宁平和",
-            "雨宁": "雨露滋润，安宁平和，寓意恩泽万物、安宁平和",
+            "佳宁": "美好安宁，寓意美好可人、安宁平行",
+            "思宁": "思维敏捷，安宁平行，寓意聪明智慧、安宁平行",
+            "雅宁": "优雅安宁，寓意优雅大方、安宁平行",
+            "雨宁": "雨露滋润，安宁平行，寓意恩泽万物、安宁平行",
             "佳欣": "美好欣喜，寓意美好可人、欣欣向荣",
             "思欣": "思维敏捷，欣欣向荣，寓意聪明智慧、欣欣向荣",
             "雅欣": "优雅欣喜，寓意优雅大方、欣欣向荣",
@@ -273,7 +273,7 @@
             "雁枫": "如雁如枫，寓意志向高远、绚丽多彩",
             "寄灵": "寄托灵魂，寓意心灵澄澈、思想深邃",
             "书雁": "如书中飞雁，寓意文采斐然、志向高远",
-            "思云": "思绪如云，寓意思想深邃、志向高远",
+            "思云": "思索如云，寓意思想深邃、志向高远",
             "梦竹": "如梦如竹，寓意美好梦想、坚韧挺拔",
             "绿蝶": "如绿色蝴蝶，寓意生机勃勃、自由飞翔",
             "飞烟": "如飞舞的烟雾，寓意神秘优雅、自由洒脱"
@@ -304,98 +304,86 @@
             
             // 模拟API调用延迟
             setTimeout(() => {
-                const nameList = nameDatabase[gender][style];
-                allNames = nameList.map(name => ({
-                    fullName: lastName + name,
-                    firstName: name,
-                    meaning: nameMeanings[name] || '暂无解释'
-                }));
+                // 获取对应风格的名字列表
+                const candidates = nameDatabase[gender][style];
                 
+                // 组合完整姓名并过滤
+                allNames = candidates
+                    .map(name => lastName + name)
+                    .filter(name => name.length <= 3);
+                
+                // 使用Fisher-Yates洗牌算法随机排序名字
+                for (let i = allNames.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [allNames[i], allNames[j]] = [allNames[j], allNames[i]];
+                }
+
                 // 隐藏加载动画
                 document.getElementById('loading').style.display = 'none';
                 
-                // 渲染第一批名字
+                // 显示第一批名字
                 renderNextBatch();
-            }, 800); // 模拟加载时间
+                
+                // 显示加载更多按钮（如果有多余名字）
+                if(allNames.length > namesPerBatch) {
+                    document.getElementById('load-more-btn').style.display = 'block';
+                }
+            }, 1500);
         }
 
         // 渲染下一批名字
         function renderNextBatch() {
-            const container = document.getElementById('name-list');
-            const endIndex = Math.min(currentIndex + namesPerBatch, allNames.length);
-            const namesToRender = allNames.slice(currentIndex, endIndex);
+            const namesToShow = allNames.slice(currentIndex, currentIndex + namesPerBatch);
+            const nameList = document.getElementById('name-list');
             
-            // 创建新的名字卡片HTML
-            const newCards = namesToRender.map(name => {
-                return `
-                <div class="name-card" data-name="${name.fullName}" style="opacity: 0; transform: translateY(20px);">
-                    <div class="name">${name.fullName}</div>
-                    <div class="name-meaning">${name.meaning}</div>
-                </div>
+            namesToShow.forEach((name, index) => {
+                const nameItem = document.createElement('div');
+                nameItem.className = 'name-card';
+                nameItem.style.animationDelay = `${index * 0.1}s`; // 添加延迟动画效果
+                
+                // 添加名字和含义
+                nameItem.innerHTML = `
+                    <div class="name">${name}</div>
+                    <div class="name-meaning">${nameMeanings[name.slice(1)] || '含义信息加载中...'}</div>
+                    <div class="attributes">
+                        <span>${document.getElementById('gender').value === 'boy' ? '<i class="fas fa-mars"></i> 男孩' : '<i class="fas fa-venus"></i> 女孩'}</span>
+                        <span>${document.getElementById('style').value === 'classic' ? '<i class="fas fa-scroll"></i> 古风' : 
+                               document.getElementById('style').value === 'modern' ? '<i class="fas fa-city"></i> 现代' : 
+                               '<i class="fas fa-feather-alt"></i> 诗意'}</span>
+                    </div>
                 `;
-            }).join('');
-            
-            // 添加到容器
-            container.innerHTML += newCards;
-            
-            // 应用动画效果
-            const cards = container.querySelectorAll('.name-card');
-            const newCardsArray = Array.from(cards).slice(currentIndex);
-            
-            // 逐个显示新卡片，添加延迟效果
-            newCardsArray.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
+                nameItem.onclick = function() {
+                    showMeaning(name);
+                };
+                nameList.appendChild(nameItem);
             });
             
-            // 更新当前索引
-            currentIndex = endIndex;
+            // 更新索引位置
+            currentIndex += namesPerBatch;
             
-            // 更新加载更多按钮状态
-            if (endIndex >= allNames.length) {
-                document.getElementById('load-more-btn').textContent = '已加载全部名字';
-                document.getElementById('load-more-btn').disabled = true;
-            } else {
-                document.getElementById('load-more-btn').style.display = 'block';
-            }
-            
-            // 控制"加载更多"按钮状态
-                document.getElementById('load-more-btn').disabled = false;
-                document.getElementById('load-more-btn').textContent = '加载更多';
-            }
-            
-            // 渲染下一批名字
-        function renderNextBatch() {
-            const container = document.getElementById('name-list');
-            const endIndex = Math.min(currentIndex + namesPerBatch, allNames.length);
-            const namesToRender = allNames.slice(currentIndex, endIndex);
-            
-            // 创建新的名字卡片HTML
-            const newCards = namesToRender.map(name => {
-                return `
-                <div class="name-card" data-name="${name.fullName}">
-                    <div class="name">${name.fullName}</div>
-                    <div class="name-meaning">${name.meaning}</div>
-                </div>
-                `;
-            }).join('');
-            
-            container.innerHTML += newCards;
-            currentIndex = endIndex;
-            
-            // 控制"加载更多"按钮状态
-            const loadMoreBtn = document.getElementById('load-more-btn');
+            // 如果没有更多名字可加载，隐藏加载更多按钮
             if (currentIndex >= allNames.length) {
-                loadMoreBtn.style.display = 'none';
-            } else {
-                loadMoreBtn.style.display = 'block';
+                document.getElementById('load-more-btn').style.display = 'none';
             }
+        }
+
+        function showMeaning(name) {
+            const meaning = nameMeanings[name.slice(1)] || '含义信息暂未收录';
+            alert(`${name}\n${meaning}`);
         }
         
         // 加载更多名字
         function loadMoreNames() {
+            // 使用Fisher-Yates洗牌算法随机排序剩余未显示的名字
+            const remainingNames = allNames.slice(currentIndex);
+            for (let i = remainingNames.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [remainingNames[i], remainingNames[j]] = [remainingNames[j], remainingNames[i]];
+            }
+            
+            // 更新allNames数组，保留已显示的名字，添加随机排序后的剩余名字
+            allNames = [...allNames.slice(0, currentIndex), ...remainingNames];
+            
             renderNextBatch();
         }
     </script>
