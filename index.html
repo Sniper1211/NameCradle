@@ -44,7 +44,7 @@
         <!-- 输入区域 -->
         <div class="input-group">
             <label>宝宝姓氏：</label>
-            <input type="text" id="lastname" placeholder="请输入姓氏" value="王" class="short-input">
+            <input type="text" id="lastname" placeholder="请输入姓氏" class="short-input">
         </div>
 
         <div class="input-group">
@@ -301,7 +301,13 @@
             const style = document.getElementById('style').value;
             
             if (!lastName) {
-                alert("请输入姓氏");
+                // 替换alert为输入框闪烁效果
+                const lastnameInput = document.getElementById('lastname');
+                lastnameInput.classList.add('input-error');
+                // 3秒后移除闪烁效果
+                setTimeout(() => {
+                    lastnameInput.classList.remove('input-error');
+                }, 3000);
                 return;
             }
             

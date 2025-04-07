@@ -89,6 +89,19 @@ select:focus, input:focus {
     box-shadow: 0 0 0 3px rgba(93, 140, 110, 0.2);
 }
 
+/* 输入错误时的闪烁效果 */
+.input-error {
+    animation: errorBlink 1.5s ease-in-out infinite;
+    border-color: #e74c3c !important;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2) !important;
+}
+
+@keyframes errorBlink {
+    0% { border-color: #e74c3c; box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2); }
+    50% { border-color: #e74c3c; box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.4); }
+    100% { border-color: #e74c3c; box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2); }
+}
+
 button {
     background: linear-gradient(to right, var(--primary-color), var(--primary-light));
     color: white;
