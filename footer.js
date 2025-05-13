@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         aboutTitle.textContent = '关于我们';
         
         const aboutText = document.createElement('p');
-        aboutText.textContent = 'AI宝宝起名助手致力于结合传统文化与现代科技，为您的宝宝提供美好而有意义的名字。';
+        aboutText.textContent = 'AI起名助手致力于结合传统文化与现代科技，为您的提供美好而有意义的名字。';
         
         aboutSection.appendChild(aboutTitle);
         aboutSection.appendChild(aboutText);
