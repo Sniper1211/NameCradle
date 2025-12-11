@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const linksList = document.createElement('ul');
         
         const links = [
+            { text: '博客', href: 'blog.html' },
             { text: '使用指南', href: 'guide.html' },
             { text: '名字百科', href: 'encyclopedia.html' },
             { text: '联系我们', href: 'contact.html' }
