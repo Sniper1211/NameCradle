@@ -7,12 +7,20 @@
     <meta name="keywords" content="宝宝起名,AI取名,姓名生成,名字含义,五行起名">
     <meta property="og:title" content="AI宝宝起名助手 - 智能传统文化命名工具">
     <meta property="og:description" content="专业的AI宝宝起名工具，提供智能取名建议和名字解析服务">
-    <meta property="og:image" content="https://name-cradle.vercel.app/logo.png">
-    <link rel="canonical" href="https://name-cradle.vercel.app/">
+    <meta property="og:image" content="https://goodnamecradle.space/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://goodnamecradle.space/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI宝宝起名助手 - 智能传统文化命名工具">
+    <meta name="twitter:description" content="专业的AI宝宝起名工具，提供智能取名建议和名字解析服务">
+    <meta name="twitter:image" content="https://goodnamecradle.space/apple-touch-icon.png">
+    <meta name="theme-color" content="#5d8c6e">
+    <link rel="canonical" href="https://goodnamecradle.space/">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <title>AI起名助手</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYFTN03GJ7"></script>
@@ -34,9 +42,10 @@
       "description": "智能宝宝命名工具",
       "applicationCategory": "Lifestyle",
       "operatingSystem": "Any",
-      "screenshot": "https://name-cradle.vercel.app/screenshot.jpg"
+      "screenshot": "https://goodnamecradle.space/apple-touch-icon.png"
     }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -47,12 +56,12 @@
         
         <!-- 输入区域 -->
         <div class="input-group">
-            <label>姓氏：</label>
+            <label for="lastname">姓氏：</label>
             <input type="text" id="lastname" placeholder="请输入姓氏" class="short-input">
         </div>
 
         <div class="input-group">
-            <label>性别：</label>
+            <label for="gender">性别：</label>
             <select id="gender">
                 <option value="boy">男</option>
                 <option value="girl">女</option>
@@ -60,7 +69,7 @@
         </div>
 
         <div class="input-group">
-            <label>偏好风格：</label>
+            <label for="style">偏好风格：</label>
             <select id="style">
                 <option value="classic">古风</option>
                 <option value="modern">现代</option>
@@ -68,10 +77,10 @@
             </select>
         </div>
 
-        <button onclick="generateNames()">立即生成名字</button>
+        <button type="button" onclick="generateNames()">立即生成名字</button>
 
         <!-- 加载动画 -->
-        <div id="loading" class="loading" style="display: none;">
+        <div id="loading" class="loading" style="display: none;" role="status" aria-live="polite">
             <div class="loading-spinner"></div>
             <p>正在生成名字...</p>
         </div>
@@ -79,11 +88,31 @@
         <!-- 结果展示 -->
         <div id="result-container">
             <h3>推荐名字列表</h3>
-            <div id="name-list" class="name-list"></div>
+            <div id="name-list" class="name-list" aria-live="polite"></div>
             <div class="load-more-container">
                 <button id="load-more-btn" onclick="loadMoreNames()" style="display: none;">加载更多名字</button>
             </div>
         </div>
+    </div>
+
+    <div class="tool-info">
+        <section>
+            <h3>工具说明</h3>
+            <p>AI起名助手旨在提供兼顾传统文化与现代审美的名字参考。通过对诗词典籍、自然意象与常用字的整理，以及对音形义的综合考量，我们在用户输入姓氏、性别与偏好风格后，给出更符合中文命名习惯的候选名，并附上简要含义说明，帮助您进行初步筛选与理解。</p>
+            <p>本工具当前为入门版，适合快速灵感获取与方向选择。若需更深入的个性化建议（如生辰八字与五行平衡等），建议结合专业顾问与更完整的数据源综合判断。</p>
+        </section>
+        <section>
+            <h3>工作原理简述</h3>
+            <p>系统将姓氏与精选词库组合为双字姓名，优先保证读音流畅、结构简洁，并进行长度与样式过滤；随后在页面中以卡片形式展示候选名与简要含义，支持批量加载与随机打散，以提升浏览效率与审美多样性。</p>
+        </section>
+        <section>
+            <h3>常见问题</h3>
+            <ul>
+                <li>是否支持双姓？支持，系统以姓氏长度动态切片显示含义。</li>
+                <li>含义是否权威？当前含义为通用文化解读，非个性化命理建议。</li>
+                <li>能否保存喜欢的名字？目前可通过截图或记录，收藏功能将后续提供。</li>
+            </ul>
+        </section>
     </div>
 
     <footer class="site-footer">
@@ -94,6 +123,7 @@
     <script src="footer.js" type="module"></script>
 
     <script>
+        let currentLastName = '';
         // 模拟数据 - 实际开发需接入数据库或AI接口
         const nameDatabase = {
             boy: {
@@ -306,80 +336,132 @@
         const namesPerBatch = 6; // 每批显示的名字数量
 
         // 生成名字逻辑
-        function generateNames() {
-            const gender = document.getElementById('gender').value;
-            const lastName = document.getElementById('lastname').value.trim();
-            const style = document.getElementById('style').value;
-            
-            if (!lastName) {
-                // 替换alert为输入框闪烁效果
-                const lastnameInput = document.getElementById('lastname');
-                lastnameInput.classList.add('input-error');
-                // 3秒后移除闪烁效果
-                setTimeout(() => {
-                    lastnameInput.classList.remove('input-error');
-                }, 3000);
-                return;
-            }
-            
-            // 显示加载动画
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('name-list').innerHTML = '';
-            document.getElementById('load-more-btn').style.display = 'none';
-            currentIndex = 0; // 重置索引
-            
-            // 模拟API调用延迟
-            setTimeout(() => {
-                // 获取对应风格的名字列表
-                const candidates = nameDatabase[gender][style];
-                
-                // 组合完整姓名并过滤
-                allNames = candidates
-                    .map(name => lastName + name)
-                    .filter(name => name.length <= 3);
-                
-                // 使用Fisher-Yates洗牌算法随机排序名字
-                for (let i = allNames.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [allNames[i], allNames[j]] = [allNames[j], allNames[i]];
+        window.generateNames = function() {
+            try {
+                const genderSelect = document.getElementById('gender');
+                const lastNameInput = document.getElementById('lastname');
+                const styleSelect = document.getElementById('style');
+
+                if (!genderSelect || !lastNameInput || !styleSelect) {
+                    console.error('Required elements not found');
+                    return;
                 }
 
-                // 隐藏加载动画
-                document.getElementById('loading').style.display = 'none';
+                const gender = genderSelect.value;
+                const lastName = lastNameInput.value.trim();
+                const style = styleSelect.value;
+                currentLastName = lastName;
                 
-                // 显示第一批名字
-                renderNextBatch();
-                
-                // 显示加载更多按钮（如果有多余名字）
-                if(allNames.length > namesPerBatch) {
-                    document.getElementById('load-more-btn').style.display = 'block';
+                if (!lastName) {
+                    // 替换alert为输入框闪烁效果
+                    lastNameInput.classList.add('input-error');
+                    lastNameInput.focus();
+                    // 3秒后移除闪烁效果
+                    setTimeout(() => {
+                        lastNameInput.classList.remove('input-error');
+                    }, 3000);
+                    return;
                 }
-            }, 1500);
+                
+                // 显示加载动画
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('name-list').innerHTML = '';
+                document.getElementById('load-more-btn').style.display = 'none';
+                currentIndex = 0; // 重置索引
+                
+                // 模拟API调用延迟
+                setTimeout(() => {
+                    try {
+                        // 检查数据库是否存在
+                        if (!nameDatabase || !nameDatabase[gender] || !nameDatabase[gender][style]) {
+                            console.error('Database entry not found for:', gender, style);
+                            alert('抱歉，暂时没有找到相关风格的名字推荐。');
+                            document.getElementById('loading').style.display = 'none';
+                            return;
+                        }
+
+                        // 获取对应风格的名字列表
+                        const candidates = nameDatabase[gender][style];
+                        
+                        // 组合完整姓名并过滤
+                        allNames = candidates
+                            .map(given => lastName + given)
+                            .filter(full => full.length <= (lastName.length + 2));
+                        
+                        // 使用Fisher-Yates洗牌算法随机排序名字
+                        for (let i = allNames.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [allNames[i], allNames[j]] = [allNames[j], allNames[i]];
+                        }
+
+                        // 隐藏加载动画
+                        document.getElementById('loading').style.display = 'none';
+                        
+                        if (allNames.length === 0) {
+                            document.getElementById('name-list').innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 20px;">没有找到合适的名字，请尝试其他风格。</div>';
+                            return;
+                        }
+
+                        // 显示第一批名字
+                        renderNextBatch();
+                        
+                        // 显示加载更多按钮（如果有多余名字）
+                        if(allNames.length > namesPerBatch) {
+                            document.getElementById('load-more-btn').style.display = 'block';
+                        }
+                    } catch (innerError) {
+                        console.error('Error inside timeout:', innerError);
+                        document.getElementById('loading').style.display = 'none';
+                        alert('生成名字时发生错误，请重试。');
+                    }
+                }, 1500);
+            } catch (error) {
+                console.error('Error in generateNames:', error);
+                alert('发生系统错误，请刷新页面重试。');
+            }
         }
 
         // 渲染下一批名字
-        function renderNextBatch() {
+        window.renderNextBatch = function() {
             const namesToShow = allNames.slice(currentIndex, currentIndex + namesPerBatch);
             const nameList = document.getElementById('name-list');
             
-            namesToShow.forEach((name, index) => {
+            namesToShow.forEach((fullName, index) => {
                 const nameItem = document.createElement('div');
                 nameItem.className = 'name-card';
-                nameItem.style.animationDelay = `${index * 0.1}s`; // 添加延迟动画效果
-                
-                // 添加名字和含义
-                nameItem.innerHTML = `
-                    <div class="name">${name}</div>
-                    <div class="name-meaning">${nameMeanings[name.slice(1)] || '含义信息加载中...'}</div>
-                    <div class="attributes">
-                        <span>${document.getElementById('gender').value === 'boy' ? '<i class="fas fa-mars"></i> 男孩' : '<i class="fas fa-venus"></i> 女孩'}</span>
-                        <span>${document.getElementById('style').value === 'classic' ? '<i class="fas fa-scroll"></i> 古风' : 
-                               document.getElementById('style').value === 'modern' ? '<i class="fas fa-city"></i> 现代' : 
-                               '<i class="fas fa-feather-alt"></i> 诗意'}</span>
-                    </div>
-                `;
+                nameItem.style.animationDelay = `${index * 0.1}s`;
+
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'name';
+                nameDiv.textContent = fullName;
+
+                const meaningDiv = document.createElement('div');
+                meaningDiv.className = 'name-meaning';
+                const givenName = fullName.slice(currentLastName.length);
+                meaningDiv.textContent = nameMeanings[givenName] || '含义信息加载中...';
+
+                const attrs = document.createElement('div');
+                attrs.className = 'attributes';
+                const spanGender = document.createElement('span');
+                const iconGender = document.createElement('i');
+                iconGender.className = document.getElementById('gender').value === 'boy' ? 'fas fa-mars' : 'fas fa-venus';
+                spanGender.appendChild(iconGender);
+                spanGender.appendChild(document.createTextNode(document.getElementById('gender').value === 'boy' ? ' 男孩' : ' 女孩'));
+                const spanStyle = document.createElement('span');
+                const styleVal = document.getElementById('style').value;
+                const iconStyle = document.createElement('i');
+                iconStyle.className = styleVal === 'classic' ? 'fas fa-scroll' : (styleVal === 'modern' ? 'fas fa-city' : 'fas fa-feather-alt');
+                spanStyle.appendChild(iconStyle);
+                spanStyle.appendChild(document.createTextNode(styleVal === 'classic' ? ' 古风' : (styleVal === 'modern' ? ' 现代' : ' 诗意')));
+                attrs.appendChild(spanGender);
+                attrs.appendChild(spanStyle);
+
+                nameItem.appendChild(nameDiv);
+                nameItem.appendChild(meaningDiv);
+                nameItem.appendChild(attrs);
+
                 nameItem.onclick = function() {
-                    showMeaning(name);
+                    showMeaning(fullName);
                 };
                 nameList.appendChild(nameItem);
             });
@@ -393,13 +475,13 @@
             }
         }
 
-        function showMeaning(name) {
-            const meaning = nameMeanings[name.slice(1)] || '含义信息暂未收录';
+        window.showMeaning = function(name) {
+            const meaning = nameMeanings[name.slice(currentLastName.length)] || '含义信息暂未收录';
             alert(`${name}\n${meaning}`);
         }
         
         // 加载更多名字
-        function loadMoreNames() {
+        window.loadMoreNames = function() {
             // 使用Fisher-Yates洗牌算法随机排序剩余未显示的名字
             const remainingNames = allNames.slice(currentIndex);
             for (let i = remainingNames.length - 1; i > 0; i--) {
@@ -412,6 +494,26 @@
             
             renderNextBatch();
         }
+        
+        const elLastname = document.getElementById('lastname');
+        const elGender = document.getElementById('gender');
+        const elStyle = document.getElementById('style');
+        if (elLastname) {
+            elLastname.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') generateNames();
+            });
+        }
+        if (elGender) {
+            elGender.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') generateNames();
+            });
+        }
+        if (elStyle) {
+            elStyle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') generateNames();
+            });
+        }
     </script>
+    <noscript>本页面需要启用JavaScript才能正常使用起名功能。</noscript>
 </body>
 </html>

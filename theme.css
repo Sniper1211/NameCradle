@@ -1,0 +1,179 @@
+:root {
+    --primary-color: #3c7a6b;
+    --primary-light: #5fa28f;
+    --primary-dark: #265a4d;
+    --secondary-color: #445b8a;
+    --accent-color: #ffb960;
+    --light-bg: #f6f7fb;
+    --border-color: #e6e8ef;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+    --shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
+    --card-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body {
+    font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft Yahei", sans-serif;
+    max-width: 960px;
+    padding: 24px;
+    background: linear-gradient(135deg, #eef2f7 0%, #e6f1ec 100%);
+    line-height: 1.7;
+}
+.container {
+    border-radius: 20px;
+    padding: 36px;
+    border: 1px solid rgba(255,255,255,0.6);
+    backdrop-filter: blur(6px);
+}
+.header {
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+}
+.header h2 {
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.header p {
+    font-size: 15px;
+}
+.input-group {
+    margin: 18px 0;
+    grid-template-columns: 120px 1fr;
+    gap: 14px;
+}
+.input-group label {
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+select, input {
+    padding: 12px 16px;
+    border-radius: 12px;
+}
+.short-input {
+    width: 70%;
+    min-width: 140px;
+}
+select:focus, input:focus {
+    box-shadow: 0 0 0 3px rgba(60, 122, 107, 0.18);
+}
+.input-error {
+    animation: errorBlink 1.2s ease-in-out infinite;
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+}
+@keyframes errorBlink {
+    0% { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18); }
+    50% { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.35); }
+    100% { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18); }
+}
+button {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border-radius: 12px;
+    font-weight: 600;
+    margin: 22px 0;
+    box-shadow: 0 10px 18px rgba(17, 24, 39, 0.12);
+    letter-spacing: 0.3px;
+    transform: translateZ(0);
+}
+button:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    box-shadow: 0 16px 28px rgba(17, 24, 39, 0.18);
+}
+button:active {
+    box-shadow: 0 6px 10px rgba(17, 24, 39, 0.12);
+}
+#result-container {
+    margin-top: 28px;
+}
+#result-container h3 {
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+.name-card {
+    padding: 22px;
+    border-radius: 16px;
+}
+.name-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 30px rgba(17, 24, 39, 0.18);
+    border-color: rgba(60, 122, 107, 0.35);
+}
+.name-card:before {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    opacity: 0.9;
+}
+.name-card .name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+.name-meaning {
+    line-height: 1.7;
+    padding: 12px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-light);
+}
+.loading {
+    padding: 24px;
+}
+.loading-spinner {
+    border: 4px solid rgba(60, 122, 107, 0.12);
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 12px;
+}
+@media (max-width: 768px) {
+    body { padding: 16px; }
+    .container { padding: 22px; border-radius: 16px; }
+    .input-group { gap: 10px; }
+    .name-list { gap: 16px; }
+    .name-card { padding: 16px; }
+    .name-card .name { font-size: 24px; }
+}
+@media (max-width: 480px) {
+    .name-list { grid-template-columns: 1fr; }
+}
+.site-footer {
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.6);
+}
+.footer-section h4 {
+    color: var(--primary-dark);
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.footer-section h4:after {
+    width: 44px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+.social-icons a:hover {
+    color: #ffffff;
+}
+.footer-bottom {
+    padding: 16px 30px;
+}
+@media (min-width: 1024px) {
+    .name-list { grid-template-columns: repeat(3, 1fr); }
+}
+.tool-info {
+  margin-top: 28px;
+}
+.tool-info h3 {
+  color: var(--primary-dark);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.tool-info p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+.tool-info ul {
+  color: var(--text-light);
+  padding-left: 18px;
+  margin: 8px 0 12px 0;
+}

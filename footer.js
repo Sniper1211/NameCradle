@@ -36,7 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
             { text: '博客', href: 'blog.html' },
             { text: '使用指南', href: 'guide.html' },
             { text: '名字百科', href: 'encyclopedia.html' },
-            { text: '联系我们', href: 'contact.html' }
+            { text: '联系我们', href: 'contact.html' },
+            { text: '隐私政策', href: 'privacy.html' },
+            { text: '条款与免责声明', href: 'terms.html' },
+            { text: '关于我们', href: 'about.html' }
         ];
         
         links.forEach(function(link) {
@@ -59,12 +62,13 @@ document.addEventListener('DOMContentLoaded', function() {
         contactTitle.textContent = '联系方式';
         
         const contactText = document.createElement('p');
-        
         const emailIcon = document.createElement('i');
         emailIcon.className = 'fas fa-envelope';
-        
+        const emailLink = document.createElement('a');
+        emailLink.href = 'mailto:hi@goodnamecradle.space';
+        emailLink.textContent = ' hi@goodnamecradle.space';
         contactText.appendChild(emailIcon);
-        contactText.appendChild(document.createTextNode(' hi@goodnamecradle.space'));
+        contactText.appendChild(emailLink);
         
         contactSection.appendChild(contactTitle);
         contactSection.appendChild(contactText);
