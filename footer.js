@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
         footerBottom.className = 'footer-bottom';
         
         const copyrightText = document.createElement('p');
-        copyrightText.textContent = '© 2025 起名助手';
+        const currentYear = new Date().getFullYear();
+        copyrightText.textContent = `© ${currentYear} 起名助手`;
         
         footerBottom.appendChild(copyrightText);
         
