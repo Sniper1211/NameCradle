@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailIcon = document.createElement('i');
         emailIcon.className = 'fas fa-envelope';
         const emailLink = document.createElement('a');
-        emailLink.href = 'mailto:hi@goodnamecradle.space';
-        emailLink.textContent = ' hi@goodnamecradle.space';
+        emailLink.href = 'mailto:hi@ok9981.com';
+        emailLink.textContent = ' hi@ok9981.com';
         contactText.appendChild(emailIcon);
         contactText.appendChild(emailLink);
         
